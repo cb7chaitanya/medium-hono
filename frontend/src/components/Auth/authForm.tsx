@@ -16,7 +16,7 @@ export function AuthForm({type}: {type: "signin" | "signup"}) {
         try{
             const response = await axios.post(`${baseUrl}/api/v1/user/${type}`, postInputs)
             const jwt = response.data.jwt
-            localStorage.setItem("Authorization", `Bearer ${jwt}`)
+            localStorage.setItem("Authorization", jwt)
             navigate('/blogs')
         } catch(e : any){
            toast.error(e) 
